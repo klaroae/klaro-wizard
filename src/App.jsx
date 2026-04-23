@@ -1,4 +1,5 @@
 import { useState } from "react";
+import klaroLogo from "./assets/klaro-logo-white.png";
 
 const colors = {
   navy: "#0F2744",
@@ -12,14 +13,99 @@ const colors = {
   whatsapp: "#25D366",
 };
 
+const categoryIcons = {
+  laptop: (
+    <svg viewBox="0 0 80 80" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="14" y="16" width="52" height="34" rx="3" stroke="#0F2744" strokeWidth="2.5"/>
+      <rect x="18" y="20" width="44" height="26" rx="1.5" fill="#E8F0FE"/>
+      <path d="M8 52h64l-4 8H12l-4-8z" stroke="#0F2744" strokeWidth="2.5" fill="#F4F6F9"/>
+      <rect x="34" y="54" width="12" height="2" rx="1" fill="#B8943F"/>
+    </svg>
+  ),
+  desktop: (
+    <svg viewBox="0 0 80 80" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="10" width="56" height="38" rx="3" stroke="#0F2744" strokeWidth="2.5"/>
+      <rect x="16" y="14" width="48" height="30" rx="1.5" fill="#E8F0FE"/>
+      <rect x="34" y="48" width="12" height="8" stroke="#0F2744" strokeWidth="2"/>
+      <rect x="26" y="56" width="28" height="4" rx="2" stroke="#0F2744" strokeWidth="2"/>
+      <circle cx="40" cy="46" r="1.5" fill="#B8943F"/>
+    </svg>
+  ),
+  monitor: (
+    <svg viewBox="0 0 80 80" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8" y="12" width="64" height="40" rx="3" stroke="#0F2744" strokeWidth="2.5"/>
+      <rect x="12" y="16" width="56" height="32" rx="1.5" fill="#E8F0FE"/>
+      <rect x="32" y="52" width="16" height="8" stroke="#0F2744" strokeWidth="2"/>
+      <rect x="24" y="60" width="32" height="4" rx="2" stroke="#0F2744" strokeWidth="2"/>
+      <polygon points="34,30 34,40 42,35" fill="#B8943F" opacity="0.6"/>
+    </svg>
+  ),
+  smartphone: (
+    <svg viewBox="0 0 80 80" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="22" y="6" width="36" height="68" rx="6" stroke="#0F2744" strokeWidth="2.5"/>
+      <rect x="26" y="16" width="28" height="44" rx="2" fill="#E8F0FE"/>
+      <rect x="34" y="10" width="12" height="3" rx="1.5" fill="#D0D7E2"/>
+      <circle cx="40" cy="66" r="3" stroke="#B8943F" strokeWidth="2" fill="none"/>
+    </svg>
+  ),
+  tablet: (
+    <svg viewBox="0 0 80 80" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="14" y="8" width="52" height="64" rx="5" stroke="#0F2744" strokeWidth="2.5"/>
+      <rect x="18" y="16" width="44" height="48" rx="2" fill="#E8F0FE"/>
+      <circle cx="40" cy="12" r="1.5" fill="#D0D7E2"/>
+      <rect x="34" y="68" width="12" height="2" rx="1" fill="#B8943F"/>
+    </svg>
+  ),
+  server: (
+    <svg viewBox="0 0 80 80" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="6" width="48" height="68" rx="3" stroke="#0F2744" strokeWidth="2.5"/>
+      <rect x="20" y="12" width="40" height="16" rx="2" fill="#E8F0FE" stroke="#0F2744" strokeWidth="1.5"/>
+      <circle cx="28" cy="20" r="2.5" fill="#B8943F"/>
+      <rect x="44" y="17" width="12" height="2" rx="1" fill="#D0D7E2"/>
+      <rect x="44" y="21" width="12" height="2" rx="1" fill="#D0D7E2"/>
+      <rect x="20" y="34" width="40" height="16" rx="2" fill="#E8F0FE" stroke="#0F2744" strokeWidth="1.5"/>
+      <circle cx="28" cy="42" r="2.5" fill="#B8943F" opacity="0.7"/>
+      <rect x="44" y="39" width="12" height="2" rx="1" fill="#D0D7E2"/>
+      <rect x="44" y="43" width="12" height="2" rx="1" fill="#D0D7E2"/>
+      <rect x="20" y="56" width="40" height="16" rx="2" fill="#E8F0FE" stroke="#0F2744" strokeWidth="1.5"/>
+      <circle cx="28" cy="64" r="2.5" fill="#B8943F" opacity="0.4"/>
+      <rect x="44" y="61" width="12" height="2" rx="1" fill="#D0D7E2"/>
+      <rect x="44" y="65" width="12" height="2" rx="1" fill="#D0D7E2"/>
+    </svg>
+  ),
+};
+
+const brandLogos = {
+  "Apple": "https://logo.clearbit.com/apple.com",
+  "Dell": "https://logo.clearbit.com/dell.com",
+  "HP": "https://logo.clearbit.com/hp.com",
+  "Lenovo": "https://logo.clearbit.com/lenovo.com",
+  "Microsoft Surface": "https://logo.clearbit.com/microsoft.com",
+  "Asus": "https://logo.clearbit.com/asus.com",
+  "Acer": "https://logo.clearbit.com/acer.com",
+  "LG": "https://logo.clearbit.com/lg.com",
+  "Samsung": "https://logo.clearbit.com/samsung.com",
+  "BenQ": "https://logo.clearbit.com/benq.com",
+  "ViewSonic": "https://logo.clearbit.com/viewsonic.com",
+  "Apple (iPhone)": "https://logo.clearbit.com/apple.com",
+  "Huawei": "https://logo.clearbit.com/huawei.com",
+  "Google Pixel": "https://logo.clearbit.com/google.com",
+  "OnePlus": "https://logo.clearbit.com/oneplus.com",
+  "Apple (iPad)": "https://logo.clearbit.com/apple.com",
+  "Dell (PowerEdge)": "https://logo.clearbit.com/dell.com",
+  "HP (ProLiant)": "https://logo.clearbit.com/hp.com",
+  "Lenovo (ThinkSystem)": "https://logo.clearbit.com/lenovo.com",
+  "IBM": "https://logo.clearbit.com/ibm.com",
+};
+
 const deviceData = {
   categories: [
-    { id: "laptop", en: "Laptop", ar: "لابتوب", icon: "💻" },
-    { id: "desktop", en: "Desktop", ar: "كمبيوتر مكتبي", icon: "🖥️" },
-    { id: "monitor", en: "Monitor", ar: "شاشة", icon: "🖵" },
-    { id: "smartphone", en: "Smartphone", ar: "هاتف ذكي", icon: "📱" },
-    { id: "tablet", en: "Tablet", ar: "تابلت", icon: "📋" },
-    { id: "server", en: "Server / Enterprise", ar: "سيرفر", icon: "🗄️" },
+    { id: "laptop", en: "Laptop", ar: "لابتوب" },
+    { id: "desktop", en: "Desktop", ar: "كمبيوتر مكتبي" },
+    { id: "monitor", en: "Monitor", ar: "شاشة" },
+    { id: "smartphone", en: "Smartphone", ar: "هاتف ذكي" },
+    { id: "tablet", en: "Tablet", ar: "تابلت" },
+    { id: "server", en: "Server / Enterprise", ar: "سيرفر" },
   ],
   brands: {
     laptop: ["Apple", "Dell", "HP", "Lenovo", "Microsoft Surface", "Asus", "Acer"],
@@ -166,7 +252,9 @@ function WizardHeader({ step, onBack, onHome }) {
           <button onClick={onBack} style={{ background: "none", border: "none", color: colors.white, fontSize: 15, cursor: "pointer", fontFamily: "Inter,sans-serif", fontWeight: 500, padding: 0 }}>← Back</button>
         )}
       </div>
-      <button onClick={onHome} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 20, color: colors.white, letterSpacing: "0.05em" }}>KLARO</button>
+      <button onClick={onHome} style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}>
+        <img src={klaroLogo} alt="KLARO" style={{ height: 28 }} />
+      </button>
       <div style={{ width: 80, textAlign: "right" }}>
         <span style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: colors.white, opacity: 0.7 }}>EN</span>
         <span style={{ fontFamily: "Inter,sans-serif", fontSize: 13, color: colors.white, opacity: 0.4 }}> | </span>
@@ -211,7 +299,7 @@ function Screen1({ onSelect }) {
           <button key={cat.id} onClick={() => onSelect(cat.id)} style={{ background: colors.white, border: "2px solid #E2E8F0", borderRadius: 12, padding: "24px 16px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, transition: "all 0.15s ease" }}
             onMouseOver={e => { e.currentTarget.style.borderColor = colors.blueMid; e.currentTarget.style.transform = "scale(0.98)"; }}
             onMouseOut={e => { e.currentTarget.style.borderColor = "#E2E8F0"; e.currentTarget.style.transform = "scale(1)"; }}>
-            <span style={{ fontSize: 36 }}>{cat.icon}</span>
+            {categoryIcons[cat.id]}
             <span style={{ fontFamily: "Inter,sans-serif", fontWeight: 600, fontSize: 15, color: colors.carbon }}>{cat.en}</span>
             <span style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: colors.grayMid }}>{cat.ar}</span>
           </button>
@@ -235,7 +323,12 @@ function Screen2({ category, onSelect }) {
           <button key={brand} onClick={() => onSelect(brand)} style={{ background: colors.white, border: "2px solid #E2E8F0", borderRadius: 12, padding: "20px 12px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, transition: "all 0.15s ease" }}
             onMouseOver={e => { e.currentTarget.style.borderColor = colors.blueMid; e.currentTarget.style.transform = "scale(0.98)"; }}
             onMouseOut={e => { e.currentTarget.style.borderColor = "#E2E8F0"; e.currentTarget.style.transform = "scale(1)"; }}>
-            <div style={{ width: 56, height: 56, borderRadius: "50%", background: colors.grayCool, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 18, color: colors.navy }}>{brand.charAt(0)}</div>
+            <div style={{ width: 56, height: 56, borderRadius: "50%", background: colors.grayCool, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+              {brandLogos[brand] ? (
+                <img src={brandLogos[brand]} alt={brand} style={{ width: 36, height: 36, objectFit: "contain" }} onError={e => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }} />
+              ) : null}
+              <div style={{ display: brandLogos[brand] ? "none" : "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 18, color: colors.navy }}>{brand.charAt(0)}</div>
+            </div>
             <span style={{ fontFamily: "Inter,sans-serif", fontWeight: 500, fontSize: 13, color: colors.carbon, textAlign: "center" }}>{brand}</span>
           </button>
         ))}
