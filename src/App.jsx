@@ -76,26 +76,35 @@ const categoryIcons = {
 };
 
 const brandLogos = {
-  "Apple": "https://logo.clearbit.com/apple.com",
-  "Dell": "https://logo.clearbit.com/dell.com",
-  "HP": "https://logo.clearbit.com/hp.com",
-  "Lenovo": "https://logo.clearbit.com/lenovo.com",
-  "Microsoft Surface": "https://logo.clearbit.com/microsoft.com",
-  "Asus": "https://logo.clearbit.com/asus.com",
-  "Acer": "https://logo.clearbit.com/acer.com",
-  "LG": "https://logo.clearbit.com/lg.com",
-  "Samsung": "https://logo.clearbit.com/samsung.com",
-  "BenQ": "https://logo.clearbit.com/benq.com",
-  "ViewSonic": "https://logo.clearbit.com/viewsonic.com",
-  "Apple (iPhone)": "https://logo.clearbit.com/apple.com",
-  "Huawei": "https://logo.clearbit.com/huawei.com",
-  "Google Pixel": "https://logo.clearbit.com/google.com",
-  "OnePlus": "https://logo.clearbit.com/oneplus.com",
-  "Apple (iPad)": "https://logo.clearbit.com/apple.com",
-  "Dell (PowerEdge)": "https://logo.clearbit.com/dell.com",
-  "HP (ProLiant)": "https://logo.clearbit.com/hp.com",
-  "Lenovo (ThinkSystem)": "https://logo.clearbit.com/lenovo.com",
-  "IBM": "https://logo.clearbit.com/ibm.com",
+  // LAPTOPS
+  "Apple": "/brands/apple.svg",
+  "Dell": "/brands/dell.svg",
+  "HP": "/brands/hp.svg",
+  "Lenovo": "/brands/lenovo.svg",
+  "Microsoft Surface": "/brands/microsoft.svg",
+  "Asus": "/brands/asus.svg",
+  "Acer": "/brands/acer.svg",
+
+  // MONITORES
+  "LG": "/brands/lg.svg",
+  "Samsung": "/brands/samsung.svg",
+  "BenQ": "/brands/benq.svg",
+  "ViewSonic": "/brands/viewsonic.svg",
+
+  // SMARTPHONES
+  "Apple (iPhone)": "/brands/apple.svg",
+  "Huawei": "/brands/huawei.svg",
+  "Google Pixel": "/brands/google.svg",
+  "OnePlus": "/brands/oneplus.svg",
+
+  // TABLETS
+  "Apple (iPad)": "/brands/apple.svg",
+
+  // SERVERS
+  "Dell (PowerEdge)": "/brands/dell.svg",
+  "HP (ProLiant)": "/brands/hp.svg",
+  "Lenovo (ThinkSystem)": "/brands/lenovo.svg",
+  "IBM": "/brands/ibm.svg",
 };
 
 const deviceData = {
